@@ -16,6 +16,7 @@ app.post("/resume", async (req, res) => {
     await resume.save();
     res.json({ message: "resume created successfully" });
   } catch (e: any) {
+    console.log(e)
     if (e._message === "Resume validation failed") {
       return res.status(400).json({ message: "invalid body" });
     }
